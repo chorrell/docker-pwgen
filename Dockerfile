@@ -1,7 +1,7 @@
-# syntax=docker.io/docker/dockerfile:1.4.0
+# syntax=docker/dockerfile:1
 FROM alpine:3
 
-LABEL org.opencontainers.image.source https://github.com/chorrell/docker-pwgen
+LABEL org.opencontainers.image.source=https://github.com/chorrell/docker-pwgen
 
 RUN set -ex \
     && apk add --no-cache pwgen
