@@ -58,9 +58,10 @@ And setup an alias like this:
 alias pwgen='docker run -i --rm chorrell/pwgen:latest'
 ```
 
-## Using the GitHub Container Registry image
+## Using the GitHub Container Registry
 
-The lateset version of this image is published to the GitHub Container Registry. You can use it like this:
+The latest version of this image is published to the GitHub Container Registry.
+You can use it like this:
 
 ```sh
 docker pull ghcr.io/chorrell/pwgen:latest

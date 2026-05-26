@@ -49,7 +49,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Test
-        run: docker run -i --rm $IMAGE_NAME -sycnB -1 25
+        run: docker run -i --rm "$IMAGE_NAME" -sycnB -1 25
 
   push:
     # Ensure test job passes before pushing image.
