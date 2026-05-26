@@ -3,6 +3,10 @@ name: Check Shell scripts
 on:
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   shfmt:
     runs-on: ubuntu-latest
@@ -14,7 +18,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-      - run: docker run --rm -v "$(pwd)":/sh -w /sh mvdan/shfmt:v3.1.1 -sr -i 2 -l -w -ci .
+      - uses: mfinelli/setup-shfmt@a25fda4c1fe115aec0f85e04126610841bc3141d # v4.0.1
+        with:
+          shfmt-version: 3.1.1
+      - run: shfmt -sr -i 2 -ci -l -w .
       - run: git diff --color --exit-code
 
   shellcheck:
