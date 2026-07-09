@@ -18,6 +18,7 @@ updates:
           - "docker/*"
         update-types:
           - "minor"
+          - "patch"
     pull-request-branch-name:
       separator: "/"
     commit-message:
