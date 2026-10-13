@@ -30,7 +30,7 @@ jobs:
       packages: write  # push to GHCR with GITHUB_TOKEN
       id-token: write  # sign the provenance attestations
       attestations: write  # store the attestations
-    uses: chorrell/workflows/.github/workflows/docker-publish.yml@feature/docker-publish
+    uses: chorrell/workflows/.github/workflows/docker-publish.yml@v1
     with:
       image-name: pwgen
       test-command: docker run -i --rm "$IMAGE" -sycnB -1 25
