@@ -37,8 +37,12 @@ docker run -i --rm pwgen -sync 25     # 25-char secure, symbol-free password
 ## CI/CD
 
 - `docker-publish.yml`: builds the image, tests it, and pushes to Docker Hub
-  (`chorrell/pwgen`) and GHCR (`ghcr.io/chorrell/pwgen`) on merge to `main`.
-- `shellcheck.yml`: lints shell scripts on PRs.
+  (`chorrell/pwgen`) and GHCR (`ghcr.io/chorrell/pwgen`) on merge to `main`,
+  with provenance attestations in both. It calls the shared
+  [chorrell/workflows](https://github.com/chorrell/workflows) `docker-publish`
+  workflow; GHCR uses `GITHUB_TOKEN`, so the `pwgen` package must grant this
+  repo write access (Package settings → Manage Actions access).
+- `shellcheck.yml`: lints shell scripts on PRs (shared `shell-lint` workflow).
 
 ## Contributing
 
