@@ -30,8 +30,11 @@ docker run -i --rm pwgen -sync 25     # 25-char secure, symbol-free password
 
 - Dockerfile uses `RUN set -ex` and `COPY --link` for cache-friendly layers.
 - Pin the `pwgen` apk package version explicitly (`pwgen=~2.08`).
-- Pre-commit hooks (`.pre-commit-config.yaml`): actionlint, gitleaks,
-  markdownlint-cli2, standard hygiene checks (trailing whitespace, EOF fixer).
+- Pre-commit hooks (`.pre-commit-config.yaml`): gitleaks, markdownlint-cli2,
+  zizmor, standard hygiene checks (trailing whitespace, EOF fixer). zizmor is
+  the GitHub Actions workflow linter; actionlint isn't used because it rejects
+  GitHub's `$/` self-repository `uses:` syntax
+  ([rhysd/actionlint#711](https://github.com/rhysd/actionlint/issues/711)).
 - Markdown lint rules in `.markdownlint.json`.
 
 ## CI/CD
