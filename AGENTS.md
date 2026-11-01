@@ -50,6 +50,6 @@ docker run -i --rm pwgen -sync 25     # 25-char secure, symbol-free password
 ## Contributing
 
 1. Branch from `main`.
-2. Run `pre-commit run --all-files` before committing.
+2. Run `prek run --all-files` before committing.
 3. Verify locally: `docker build -t pwgen . && docker run -i --rm pwgen -h`.
 4. Open a PR; CI runs the build/test and shellcheck workflows.
